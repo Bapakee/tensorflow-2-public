@@ -83,7 +83,7 @@
             
             // YOUR CODE HERE
             model.add(tf.layers.dense({inputShape: [numOfFeatures], activation: "sigmoid", units: 5}))
-            model.add(tf.layers.dense({activation: "softmax", units: 3}));
+            model.add(tf.layers.dense({activation: "softmax", units: 2}));
             
             
             // Compile the model using the binaryCrossentropy loss, 
