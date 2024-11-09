@@ -28,8 +28,7 @@
             const convertedTrainingData =
                 trainingData.map(({xs, ys}) => {
                     const labels = [
-                        ys.species == 1 ? 1 : 0,
-                        ys.species == 0 ? 1 : 0
+                        ys.diagnosis == 1 ? 1 : 0
                     ] 
                     return{ xs: Object.values(xs), ys: Object.values(labels)};
                 }).batch(10); // YOUR CODE HERE
@@ -58,8 +57,7 @@
             const convertedTestingData = 
                 testingData.map(({xs, ys}) => {
                     const labels = [
-                        ys.species == 1 ? 1 : 0,
-                        ys.species == 0 ? 1 : 0
+                        ys.diagnosis == 1 ? 1 : 0
                     ] 
                     return{ xs: Object.values(xs), ys: Object.values(labels)};
                 }).batch(10); // YOUR CODE HERE// YOUR CODE HERE
@@ -83,7 +81,7 @@
             
             // YOUR CODE HERE
             model.add(tf.layers.dense({inputShape: [numOfFeatures], activation: "relu", units: 5}));
-            model.add(tf.layers.dense({activation: "sigmoid", units: 2}));
+            model.add(tf.layers.dense({activation: "sigmoid", units: 1}));
             
             
             // Compile the model using the binaryCrossentropy loss, 
