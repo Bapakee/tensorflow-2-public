@@ -29,7 +29,7 @@
             model.add(tf.layers.dense({activation: "softmax", units: 3}));
             
             model.compile({loss: "categoricalCrossentropy", optimizer: tf.train.adam(0.06)});
-            
+                  
             await model.fitDataset(convertedData, 
                              {epochs:100,
                               callbacks:{
